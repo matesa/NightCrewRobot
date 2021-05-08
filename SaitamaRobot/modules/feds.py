@@ -156,11 +156,11 @@ def rename_fed(update, context):
     verify_fed = sql.get_fed_info(fed_id)
 
     if not verify_fed:
-        return msg.reply_text("Bu beslenen veri tabanımda yok!")
+        return msg.reply_text("Bu fed veri tabanımda yok!")
 
     if is_user_fed_owner(fed_id, user.id):
         sql.rename_fed(fed_id, user.id, newname)
-        msg.reply_text(f"Başarıyla için beslenen adlandırılmıştı {newname}!")
+        msg.reply_text(f"Başarıyla için  adlandırılmıştı {newname}!")
     else:
         msg.reply_text("Bunu yalnızca federasyon sahibi yapabilir!")
 
@@ -1028,7 +1028,7 @@ def set_frules(update: Update, context: CallbackContext):
         return
 
     if is_user_fed_admin(fed_id, user.id) is False:
-        update.effective_message.reply_text("Bunu yalnızca beslenen yöneticiler yapabilir!")
+        update.effective_message.reply_text("Bunu yalnızca Fed yöneticiler yapabilir!")
         return
 
     if len(args) >= 1:
